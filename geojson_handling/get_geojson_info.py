@@ -18,7 +18,7 @@ def _print_all_shapes_in_geojson(geojson_path : str):
     i = 0
     for polygon in gj["features"]:
         print(gj["features"][i]["properties"])
-        print(gj["features"][i]["geometry"] + '\n')
+        print(str(gj["features"][i]["geometry"]) + '\n')
 
         i += 1
 
