@@ -31,7 +31,7 @@ def _print_location_of_coordinate(path : str, coordinate: Point):
         shapely_poly = shape(gj["features"][i]["geometry"])
         
         if coordinate.within(shapely_poly):
-           print(gj["features"][i]["properties"])
+           print(gj["features"][i]["properties"]["Name"])
            break
 
         i += 1

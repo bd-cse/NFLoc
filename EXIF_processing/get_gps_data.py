@@ -1,5 +1,7 @@
 import exifread
 import exifread.utils
+from shapely.geometry import Point
+
 
 # Functions for processing GPS data from tiff files
 
@@ -28,3 +30,6 @@ def _get_coordinates_as_list(path : str) -> list:
 
     coords = exifread.utils.get_gps_coords(tags)
     return [coords[1], coords[0]]
+
+def _get_coordinates_as_point(path : str) -> Point:
+    return Point(_get_coordinates_as_list(path))
