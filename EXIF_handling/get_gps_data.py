@@ -1,7 +1,7 @@
 import exifread
 import exifread.utils
 from shapely.geometry import Point
-
+from folder_handling.parse_files_in_folder import _make_file_paths_array
 
 # Functions for processing GPS data from tiff files
 
@@ -33,3 +33,12 @@ def _get_coordinates_as_list(tif_path : str) -> list:
 
 def _get_coordinates_as_point(tif_path : str) -> Point:
     return Point(_get_coordinates_as_list(tif_path))
+
+def _make_list_of_coordinates_from_tiffs(folder_path : str) -> list:
+    coords_list = []
+    tiffs = _make_file_paths_array(folder_path)
+
+    for tiff in tiffs:
+        coords_list.append(_get_coordinates_as_point(tiff))
+    
+    return coords_list
