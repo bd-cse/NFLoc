@@ -1,4 +1,5 @@
 import os
+import glob
 
 # Methods for folder and file processing
 
@@ -36,3 +37,6 @@ def _get_folder_paths_within_folder(folder_path : str) -> list:
             subfolders.append(item_path)
     
     return subfolders
+
+def _get_all_images_given_folder(folder_path : str) -> list:
+    return glob.glob(folder_path + '/**/*.tif', recursive=True)

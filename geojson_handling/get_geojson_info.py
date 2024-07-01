@@ -43,10 +43,15 @@ def _print_location_of_coordinate(geojson_path : str, coordinate: Point):
 def _make_dict_with_locations_count(geojson_path : str, folder_path : str) -> dict:
    with open(geojson_path, "r") as f:
       gj = geojson.load(f)
-      coords_list = _make_list_of_coordinates_from_tiffs(folder_path)
+      return _make_dict_with_coordinates_list(geojson_path, 
+                                              _make_list_of_coordinates_from_tiffs(folder_path))
+
+def _make_dict_with_coordinates_list(geojson_path : str, coordinates : list) -> dict:
+   with open(geojson_path, "r") as f:
+      gj = geojson.load(f)
       locations_dict = {}
 
-      for coordinate in coords_list:
+      for coordinate in coordinates:
 
         i = 0
         for polygon in gj["features"]:
