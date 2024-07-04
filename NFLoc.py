@@ -1,4 +1,4 @@
-from EXIF_handling.get_gps_data import _get_coordinates_as_point
+from EXIF_handling.get_gps_data import _get_coordinates_as_point, _append_coordinate_to_list
 from geojson_handling.get_geojson_info import _make_dict_with_coordinates_list
 from folder_handling.parse_files_in_folder import _get_all_images_given_folder
 import os

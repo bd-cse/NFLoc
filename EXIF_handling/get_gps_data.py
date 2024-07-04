@@ -34,6 +34,9 @@ def _get_coordinates_as_list(tif_path : str) -> list:
 def _get_coordinates_as_point(tif_path : str) -> Point:
     return Point(_get_coordinates_as_list(tif_path))
 
+def _append_coordinate_to_list(tif_path : str, lst : list):
+    lst.append(_get_coordinates_as_point(tif_path))
+
 def _make_list_of_coordinates_from_tiffs(folder_path : str) -> list:
     coords_list = []
     tiffs = _make_file_paths_array(folder_path)
